@@ -12,9 +12,8 @@ namespace SimuladorEstufa
 {
     public partial class MainForm : Form
     {
-        public const double LenaSeca = 4.5;//Kilocalorias por gramos (Kcal/Gr) = 1.25Kcal/h
-        public const double CascaraSecaArroz = 3.8;
-        public const double HojaSeca = 4.5;
+        public const double LenaSeca = 4500;//Kilocalorias por hora (Kcal/h) = 75 calorias por minuto (cal/m)
+        public const double CascaraSecaArroz = 3700;//Kilocalorias por hora (Kcal/h) = 61.67 calorias por minuto (cal/m)
 
         public MainForm()
         {
@@ -103,7 +102,7 @@ namespace SimuladorEstufa
             AlimentoLabel.Text = "     Arroz     ";
         }
 
-        private void DeseleccionarButton_Click(object sender, EventArgs e)
+        private void DeseleccionarAlimentoButton_Click(object sender, EventArgs e)
         {
             RacionLabel.Text = "0.00";
             CarbohidratosLabel.Text = "0.00";
@@ -111,6 +110,44 @@ namespace SimuladorEstufa
             ProteinasLabel.Text = "0.00";
             GrasasLabel.Text = "0.00";
             AlimentoLabel.Text = "---------------";
+        }
+
+        private void LenaPictureBox_Click(object sender, EventArgs e)
+        {
+            CombustibleN2Label.Visible = false;
+            CombustibleKcalh2Label.Visible = false;
+            CombustibleKcalm2Label.Visible = false;
+            
+            CombustibleN1Label.Visible = true;
+            CombustibleKcalh1Label.Visible = true;
+            CombustibleKcalm1Label.Visible = true;
+        }
+
+        private void CascaraArrozPictureBox_Click(object sender, EventArgs e)
+        {
+            CombustibleN1Label.Visible = false;
+            CombustibleKcalh1Label.Visible = false;
+            CombustibleKcalm1Label.Visible = false;
+            
+            CombustibleN2Label.Visible = true;
+            CombustibleKcalh2Label.Visible = true;
+            CombustibleKcalm2Label.Visible = true;
+        }
+
+        private void DeseleccionarCombustibleButton_Click(object sender, EventArgs e)
+        {
+            CombustibleN1Label.Visible = false;
+            CombustibleKcalh1Label.Visible = false;
+            CombustibleKcalm1Label.Visible = false;
+
+            CombustibleN2Label.Visible = false;
+            CombustibleKcalh2Label.Visible = false;
+            CombustibleKcalm2Label.Visible = false;
+        }
+
+        private void SeleccionarCombustibleButton_Click(object sender, EventArgs e)
+        {
+            TabControl.SelectedIndex = 1;
         }
     }
 }

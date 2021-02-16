@@ -110,5 +110,17 @@
   <ItemGroup>
     <None Include="Resources\Arroz.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Leña.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CascaraArroz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seleccionar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancelar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
