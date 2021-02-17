@@ -153,9 +153,29 @@ namespace SimuladorEstufa.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Estufa11 {
+            get {
+                object obj = ResourceManager.GetObject("Estufa11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Estufa2 {
             get {
                 object obj = ResourceManager.GetObject("Estufa2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Estufa21 {
+            get {
+                object obj = ResourceManager.GetObject("Estufa21", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,6 +193,16 @@ namespace SimuladorEstufa.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Estufa31 {
+            get {
+                object obj = ResourceManager.GetObject("Estufa31", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Estufa4 {
             get {
                 object obj = ResourceManager.GetObject("Estufa4", resourceCulture);
@@ -183,9 +213,39 @@ namespace SimuladorEstufa.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Estufa41 {
+            get {
+                object obj = ResourceManager.GetObject("Estufa41", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Estufa5 {
             get {
                 object obj = ResourceManager.GetObject("Estufa5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Estufa51 {
+            get {
+                object obj = ResourceManager.GetObject("Estufa51", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HojaSeca {
+            get {
+                object obj = ResourceManager.GetObject("HojaSeca", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

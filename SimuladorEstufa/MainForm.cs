@@ -14,6 +14,7 @@ namespace SimuladorEstufa
     {
         public const double LenaSeca = 4500;//Kilocalorias por hora (Kcal/h) = 75 calorias por minuto (cal/m)
         public const double CascaraSecaArroz = 3700;//Kilocalorias por hora (Kcal/h) = 61.67 calorias por minuto (cal/m)
+        public const double HojaSeca = 4800;//Kilocalorias por hora(Kcal/h) = 80 calorias por minuto(cal/m)
 
         public double KcalCombustible, KcalAlimento, KcalRestantes, KcalQuemadasPorMinuto, KcalQuemadaTotal;
         public int hora = 0, minuto = 0, segundo = 0;
@@ -25,9 +26,9 @@ namespace SimuladorEstufa
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            TimerCronometro.Interval = 1;
+
         }
-        
+
         public void LLenaCampo()
         {
             KcalRestantesTextBox.Text = KcalRestantes.ToString("N2");
@@ -42,6 +43,10 @@ namespace SimuladorEstufa
             CombustibleKcalh2Label.Visible = false;
             CombustibleKcalm2Label.Visible = false;
 
+            CombustibleN3Label.Visible = false;
+            CombustibleKcalh3Label.Visible = false;
+            CombustibleKcalm3Label.Visible = false;
+
             CombustibleN1Label.Visible = true;
             CombustibleKcalh1Label.Visible = true;
             CombustibleKcalm1Label.Visible = true;
@@ -53,9 +58,28 @@ namespace SimuladorEstufa
             CombustibleKcalh1Label.Visible = false;
             CombustibleKcalm1Label.Visible = false;
 
+            CombustibleN3Label.Visible = false;
+            CombustibleKcalh3Label.Visible = false;
+            CombustibleKcalm3Label.Visible = false;
+
             CombustibleN2Label.Visible = true;
             CombustibleKcalh2Label.Visible = true;
             CombustibleKcalm2Label.Visible = true;
+        }
+
+        private void HojaSecaPictureBox_Click(object sender, EventArgs e)
+        {
+            CombustibleN1Label.Visible = false;
+            CombustibleKcalh1Label.Visible = false;
+            CombustibleKcalm1Label.Visible = false;
+
+            CombustibleN2Label.Visible = false;
+            CombustibleKcalh2Label.Visible = false;
+            CombustibleKcalm2Label.Visible = false;
+
+            CombustibleN3Label.Visible = true;
+            CombustibleKcalh3Label.Visible = true;
+            CombustibleKcalm3Label.Visible = true;
         }
 
         private void SeleccionarCombustibleButton_Click(object sender, EventArgs e)
@@ -68,7 +92,13 @@ namespace SimuladorEstufa
             {
                 KcalCombustible = CascaraSecaArroz / 60;
             }
-
+            else if (CombustibleN3Label.Visible == true)
+                KcalCombustible = HojaSeca / 60;
+            else
+            {
+                MessageBox.Show("¡Debe seleccionar un tipo de combustible!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             TabControl.SelectedIndex = 1;
         }
 
@@ -116,8 +146,15 @@ namespace SimuladorEstufa
 
         private void SeleccionarAlimentoButton_Click(object sender, EventArgs e)
         {
-            KcalAlimento = Convert.ToDouble(KilokaloriasLabel.Text) * Convert.ToDouble(CantidadAlimentoNumericUpDown.Value);
+            KcalAlimento = Convert.ToDouble(KilokaloriasLabel.Text) * (Convert.ToDouble(CantidadAlimentoNumericUpDown.Value) * 453.592);
             KcalRestantes = KcalAlimento;
+
+            if (AlimentoLabel.Text == "---------------")
+            {
+                MessageBox.Show("¡Debe seleccionar un alimento!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             TabControl.SelectedIndex = 2;
             LLenaCampo();
         }
@@ -140,14 +177,11 @@ namespace SimuladorEstufa
 
         private void TimerCronometro_Tick(object sender, EventArgs e)
         {
-            TimerCronometro.Interval = Timer.Interval / 60;
-
             if (KcalRestantes > 0)
             {
                 segundo++;
                 if (segundo == 60)
                 {
-                    minuto++;
                     segundo = 0;
                 }
 
@@ -157,19 +191,24 @@ namespace SimuladorEstufa
                     minuto = 0;
                 }
 
-                if ((segundo >= 0 && segundo <= 9) && (minuto >= 0 && minuto <= 9))
-                {
-                    TiempoLabel.Text = "0" + hora + ":" + "0" + minuto + ":" + "0" + segundo;
-                }
-                else if (segundo > 9 && (minuto >= 0 && minuto <= 9))
-                    TiempoLabel.Text = "0" + hora + ":" + "0" + minuto + ":" + segundo;
-                else if (segundo > 9 && minuto > 9)
+                if (minuto > 9 && segundo > 9)
                     TiempoLabel.Text = "0" + hora + ":" + minuto + ":" + segundo;
+
+                if (minuto > 9 && segundo < 9)
+                    TiempoLabel.Text = "0" + hora + ":" + minuto + ":" + "0" + segundo;
+
+                if (segundo > 9 && (minuto >= 0 && minuto <= 9))
+                    TiempoLabel.Text = "0" + hora + ":" + "0" + minuto + ":" + segundo;
+
+                if ((segundo >= 0 && segundo <= 9) && (minuto >= 0 && minuto <= 9))
+                    TiempoLabel.Text = "0" + hora + ":" + "0" + minuto + ":" + "0" + segundo;
             }
         }
 
         public void Cocinar()
         {
+            minuto++;
+            segundo = 0;
             KcalRestantes -= KcalQuemadasPorMinuto;
             KcalQuemadaTotal += KcalQuemadasPorMinuto;
 

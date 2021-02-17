@@ -122,5 +122,23 @@
   <ItemGroup>
     <None Include="Resources\Cancelar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HojaSeca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Estufa11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Estufa21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Estufa31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Estufa41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Estufa51.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
