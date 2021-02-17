@@ -15,6 +15,9 @@ namespace SimuladorEstufa
         public const double LenaSeca = 4500;//Kilocalorias por hora (Kcal/h) = 75 calorias por minuto (cal/m)
         public const double CascaraSecaArroz = 3700;//Kilocalorias por hora (Kcal/h) = 61.67 calorias por minuto (cal/m)
 
+        public double KcalCombustible, KcalAlimento, KcalRestantes, KcalQuemadasPorMinuto, KcalQuemadaTotal;
+        public int hora = 0, minuto = 0;
+
         public MainForm()
         {
             InitializeComponent();
@@ -24,54 +27,63 @@ namespace SimuladorEstufa
         {
 
         }
-
-        public void DeterminarPosicion(PictureBox Pos, PictureBox Estufa)
+        
+        public void LLenaCampo()
         {
-            Posicion0PictureBox.Visible = false;
-            Posicion1PictureBox.Visible = false;
-            Posicion2PictureBox.Visible = false;
-            Posicion3PictureBox.Visible = false;
-            Posicion4PictureBox.Visible = false;
-            Posicion5PictureBox.Visible = false;
-            Estufa1PictureBox.Visible = false;
-            Estufa2PictureBox.Visible = false;
-            Estufa3PictureBox.Visible = false;
-            Estufa4PictureBox.Visible = false;
-            Estufa5PictureBox.Visible = false;
-            Pos.Visible = true;
-            Estufa.Visible = true;
+            KcalRestantesTextBox.Text = KcalRestantes.ToString("N2");
+            KcalQuemadaTotalTextBox.Text = KcalQuemadaTotal.ToString("N2");
+            KcalQuemadaMinutoTextBox.Text = KcalQuemadasPorMinuto.ToString("N2");
         }
 
-        private void Posicion0Button_Click(object sender, EventArgs e)
+        //Combustible
+        private void LenaPictureBox_Click(object sender, EventArgs e)
         {
-            DeterminarPosicion(Posicion0PictureBox, Estufa0PictureBox);
+            CombustibleN2Label.Visible = false;
+            CombustibleKcalh2Label.Visible = false;
+            CombustibleKcalm2Label.Visible = false;
+
+            CombustibleN1Label.Visible = true;
+            CombustibleKcalh1Label.Visible = true;
+            CombustibleKcalm1Label.Visible = true;
         }
 
-        private void Posicion1Button_Click(object sender, EventArgs e)
+        private void CascaraArrozPictureBox_Click(object sender, EventArgs e)
         {
-            DeterminarPosicion(Posicion1PictureBox, Estufa1PictureBox);
+            CombustibleN1Label.Visible = false;
+            CombustibleKcalh1Label.Visible = false;
+            CombustibleKcalm1Label.Visible = false;
+
+            CombustibleN2Label.Visible = true;
+            CombustibleKcalh2Label.Visible = true;
+            CombustibleKcalm2Label.Visible = true;
         }
 
-        private void Posicion2Button_Click(object sender, EventArgs e)
+        private void SeleccionarCombustibleButton_Click(object sender, EventArgs e)
         {
-            DeterminarPosicion(Posicion2PictureBox, Estufa2PictureBox);
+            if (CombustibleN1Label.Visible == true)
+            {
+                KcalCombustible = LenaSeca / 60;
+            }
+            else if (CombustibleN2Label.Visible == true)
+            {
+                KcalCombustible = CascaraSecaArroz / 60;
+            }
+
+            TabControl.SelectedIndex = 1;
         }
 
-        private void Posicion3Button_Click(object sender, EventArgs e)
+        private void DeseleccionarCombustibleButton_Click(object sender, EventArgs e)
         {
-            DeterminarPosicion(Posicion3PictureBox, Estufa3PictureBox);
+            CombustibleN1Label.Visible = false;
+            CombustibleKcalh1Label.Visible = false;
+            CombustibleKcalm1Label.Visible = false;
+
+            CombustibleN2Label.Visible = false;
+            CombustibleKcalh2Label.Visible = false;
+            CombustibleKcalm2Label.Visible = false;
         }
 
-        private void Posicion4Button_Click(object sender, EventArgs e)
-        {
-            DeterminarPosicion(Posicion4PictureBox, Estufa4PictureBox);
-        }
-
-        private void Posicion5Button_Click(object sender, EventArgs e)
-        {
-            DeterminarPosicion(Posicion5PictureBox, Estufa5PictureBox);
-        }
-
+        //Alimento
         private void YucaPictureBox_Click(object sender, EventArgs e)
         {
             RacionLabel.Text = "1.00";
@@ -102,6 +114,14 @@ namespace SimuladorEstufa
             AlimentoLabel.Text = "     Arroz     ";
         }
 
+        private void SeleccionarAlimentoButton_Click(object sender, EventArgs e)
+        {
+            KcalAlimento = Convert.ToDouble(KilokaloriasLabel.Text) * Convert.ToDouble(CantidadAlimentoNumericUpDown.Value);
+            KcalRestantes = KcalAlimento;
+            TabControl.SelectedIndex = 2;
+            LLenaCampo();
+        }
+
         private void DeseleccionarAlimentoButton_Click(object sender, EventArgs e)
         {
             RacionLabel.Text = "0.00";
@@ -112,42 +132,114 @@ namespace SimuladorEstufa
             AlimentoLabel.Text = "---------------";
         }
 
-        private void LenaPictureBox_Click(object sender, EventArgs e)
+        //Estufa
+        private void Timer_Tick(object sender, EventArgs e)
         {
-            CombustibleN2Label.Visible = false;
-            CombustibleKcalh2Label.Visible = false;
-            CombustibleKcalm2Label.Visible = false;
-            
-            CombustibleN1Label.Visible = true;
-            CombustibleKcalh1Label.Visible = true;
-            CombustibleKcalm1Label.Visible = true;
+            Cocinar();
         }
 
-        private void CascaraArrozPictureBox_Click(object sender, EventArgs e)
+        public void Cocinar()
         {
-            CombustibleN1Label.Visible = false;
-            CombustibleKcalh1Label.Visible = false;
-            CombustibleKcalm1Label.Visible = false;
-            
-            CombustibleN2Label.Visible = true;
-            CombustibleKcalh2Label.Visible = true;
-            CombustibleKcalm2Label.Visible = true;
+            minuto++;
+            if (minuto == 60)
+            {
+                hora++;
+                minuto = 0;
+            }
+
+            if (minuto >= 0 && minuto <= 9)
+                TiempoLabel.Text = "0" + hora + ":" + "0" + minuto;
+            else
+                TiempoLabel.Text = "0" + hora + ":" + minuto;
+
+            KcalRestantes -= KcalQuemadasPorMinuto;
+            KcalQuemadaTotal += KcalQuemadasPorMinuto;
+
+            if (KcalRestantes <= 0)
+            {
+                DeterminarPosicion(Posicion0PictureBox, Estufa0PictureBox);
+                KcalQuemadasPorMinuto = 0;
+                Timer.Enabled = false;
+                EstadoTextBox.Text = "¡Cocinado!";
+                KcalRestantes = 0;
+                KcalQuemadaTotal = KcalAlimento;
+            }
+
+            LLenaCampo();
         }
 
-        private void DeseleccionarCombustibleButton_Click(object sender, EventArgs e)
+        public void DeterminarPosicion(PictureBox Pos, PictureBox Estufa)
         {
-            CombustibleN1Label.Visible = false;
-            CombustibleKcalh1Label.Visible = false;
-            CombustibleKcalm1Label.Visible = false;
-
-            CombustibleN2Label.Visible = false;
-            CombustibleKcalh2Label.Visible = false;
-            CombustibleKcalm2Label.Visible = false;
+            Posicion0PictureBox.Visible = false;
+            Posicion1PictureBox.Visible = false;
+            Posicion2PictureBox.Visible = false;
+            Posicion3PictureBox.Visible = false;
+            Posicion4PictureBox.Visible = false;
+            Posicion5PictureBox.Visible = false;
+            Estufa1PictureBox.Visible = false;
+            Estufa2PictureBox.Visible = false;
+            Estufa3PictureBox.Visible = false;
+            Estufa4PictureBox.Visible = false;
+            Estufa5PictureBox.Visible = false;
+            Pos.Visible = true;
+            Estufa.Visible = true;
         }
 
-        private void SeleccionarCombustibleButton_Click(object sender, EventArgs e)
+        private void Posicion0Button_Click(object sender, EventArgs e)
         {
-            TabControl.SelectedIndex = 1;
+            DeterminarPosicion(Posicion0PictureBox, Estufa0PictureBox);
+            KcalQuemadasPorMinuto = 0;
+            Timer.Enabled = false;
+
+            if (KcalRestantes > 0)
+                EstadoTextBox.Text = "Quedan " + KcalRestantes.ToString("N2") + " kcal por quemar";
+            else if (KcalRestantes == 0)
+                EstadoTextBox.Text = "¡Cocinado!";
+        }
+
+        private void Posicion1Button_Click(object sender, EventArgs e)
+        {
+            DeterminarPosicion(Posicion1PictureBox, Estufa1PictureBox);
+            KcalQuemadasPorMinuto = KcalCombustible * 0.20;
+            if (Timer.Enabled == false)
+                Timer.Enabled = true;
+            EstadoTextBox.Text = "Cocinando";
+        }
+
+        private void Posicion2Button_Click(object sender, EventArgs e)
+        {
+            DeterminarPosicion(Posicion2PictureBox, Estufa2PictureBox);
+            KcalQuemadasPorMinuto = KcalCombustible * 0.40;
+            if (Timer.Enabled == false)
+                Timer.Enabled = true;
+            EstadoTextBox.Text = "Cocinando";
+        }
+
+        private void Posicion3Button_Click(object sender, EventArgs e)
+        {
+            DeterminarPosicion(Posicion3PictureBox, Estufa3PictureBox);
+            KcalQuemadasPorMinuto = KcalCombustible * 0.60;
+            if (Timer.Enabled == false)
+                Timer.Enabled = true;
+            EstadoTextBox.Text = "Cocinando";
+        }
+
+        private void Posicion4Button_Click(object sender, EventArgs e)
+        {
+            DeterminarPosicion(Posicion4PictureBox, Estufa4PictureBox);
+            KcalQuemadasPorMinuto = KcalCombustible * 0.80;
+            if (Timer.Enabled == false)
+                Timer.Enabled = true;
+            EstadoTextBox.Text = "Cocinando";
+        }
+
+        private void Posicion5Button_Click(object sender, EventArgs e)
+        {
+            DeterminarPosicion(Posicion5PictureBox, Estufa5PictureBox);
+            KcalQuemadasPorMinuto = KcalCombustible;
+            if (Timer.Enabled == false)
+                Timer.Enabled = true;
+            EstadoTextBox.Text = "Cocinando";
         }
     }
 }
