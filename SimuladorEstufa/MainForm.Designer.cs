@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.CombustibleTagPage = new System.Windows.Forms.TabPage();
+            this.HojaSecaPictureBox = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.CombustibleKcalm2Label = new System.Windows.Forms.Label();
             this.CombustibleN2Label = new System.Windows.Forms.Label();
@@ -41,6 +42,10 @@
             this.CombustibleN1Label = new System.Windows.Forms.Label();
             this.CombustibleKcalm1Label = new System.Windows.Forms.Label();
             this.CombustibleKcalh1Label = new System.Windows.Forms.Label();
+            this.DeseleccionarCombustibleButton = new System.Windows.Forms.Button();
+            this.SeleccionarCombustibleButton = new System.Windows.Forms.Button();
+            this.CascaraArrozPictureBox = new System.Windows.Forms.PictureBox();
+            this.LenaPictureBox = new System.Windows.Forms.PictureBox();
             this.AlimentosTabPage = new System.Windows.Forms.TabPage();
             this.CantidadAlimentoNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
@@ -55,6 +60,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.DeseleccionarAlimentoButton = new System.Windows.Forms.Button();
+            this.SeleccionarAlimentoButton = new System.Windows.Forms.Button();
+            this.ArrozPictureBox = new System.Windows.Forms.PictureBox();
+            this.CarnePictureBox = new System.Windows.Forms.PictureBox();
+            this.YucaPictureBox = new System.Windows.Forms.PictureBox();
             this.EstufaTabPage = new System.Windows.Forms.TabPage();
             this.label15 = new System.Windows.Forms.Label();
             this.KcalQuemadaTotalTextBox = new System.Windows.Forms.TextBox();
@@ -77,18 +87,6 @@
             this.Posicion1Button = new System.Windows.Forms.Button();
             this.Posicion0Button = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.TimerCronometro = new System.Windows.Forms.Timer(this.components);
-            this.HojaSecaPictureBox = new System.Windows.Forms.PictureBox();
-            this.DeseleccionarCombustibleButton = new System.Windows.Forms.Button();
-            this.SeleccionarCombustibleButton = new System.Windows.Forms.Button();
-            this.CascaraArrozPictureBox = new System.Windows.Forms.PictureBox();
-            this.LenaPictureBox = new System.Windows.Forms.PictureBox();
-            this.DeseleccionarAlimentoButton = new System.Windows.Forms.Button();
-            this.SeleccionarAlimentoButton = new System.Windows.Forms.Button();
-            this.ArrozPictureBox = new System.Windows.Forms.PictureBox();
-            this.CarnePictureBox = new System.Windows.Forms.PictureBox();
-            this.YucaPictureBox = new System.Windows.Forms.PictureBox();
             this.Posicion5PictureBox = new System.Windows.Forms.PictureBox();
             this.Posicion4PictureBox = new System.Windows.Forms.PictureBox();
             this.Posicion3PictureBox = new System.Windows.Forms.PictureBox();
@@ -102,18 +100,20 @@
             this.Estufa2PictureBox = new System.Windows.Forms.PictureBox();
             this.Estufa1PictureBox = new System.Windows.Forms.PictureBox();
             this.Estufa0PictureBox = new System.Windows.Forms.PictureBox();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.TimerCronometro = new System.Windows.Forms.Timer(this.components);
             this.TabControl.SuspendLayout();
             this.CombustibleTagPage.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.AlimentosTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CantidadAlimentoNumericUpDown)).BeginInit();
-            this.EstufaTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HojaSecaPictureBox)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CascaraArrozPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LenaPictureBox)).BeginInit();
+            this.AlimentosTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CantidadAlimentoNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ArrozPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarnePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.YucaPictureBox)).BeginInit();
+            this.EstufaTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Posicion5PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Posicion4PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Posicion3PictureBox)).BeginInit();
@@ -136,7 +136,7 @@
             this.TabControl.Controls.Add(this.EstufaTabPage);
             this.TabControl.Font = new System.Drawing.Font("Georgia", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TabControl.Location = new System.Drawing.Point(9, 10);
-            this.TabControl.Margin = new System.Windows.Forms.Padding(2);
+            this.TabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
             this.TabControl.Size = new System.Drawing.Size(1231, 527);
@@ -152,13 +152,25 @@
             this.CombustibleTagPage.Controls.Add(this.LenaPictureBox);
             this.CombustibleTagPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CombustibleTagPage.Location = new System.Drawing.Point(4, 32);
-            this.CombustibleTagPage.Margin = new System.Windows.Forms.Padding(2);
+            this.CombustibleTagPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CombustibleTagPage.Name = "CombustibleTagPage";
-            this.CombustibleTagPage.Padding = new System.Windows.Forms.Padding(2);
+            this.CombustibleTagPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CombustibleTagPage.Size = new System.Drawing.Size(1223, 491);
             this.CombustibleTagPage.TabIndex = 0;
             this.CombustibleTagPage.Text = "Combustible";
             this.CombustibleTagPage.UseVisualStyleBackColor = true;
+            // 
+            // HojaSecaPictureBox
+            // 
+            this.HojaSecaPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HojaSecaPictureBox.Image = global::SimuladorEstufa.Properties.Resources.HojaSeca;
+            this.HojaSecaPictureBox.Location = new System.Drawing.Point(452, 3);
+            this.HojaSecaPictureBox.Name = "HojaSecaPictureBox";
+            this.HojaSecaPictureBox.Size = new System.Drawing.Size(310, 310);
+            this.HojaSecaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.HojaSecaPictureBox.TabIndex = 25;
+            this.HojaSecaPictureBox.TabStop = false;
+            this.HojaSecaPictureBox.Click += new System.EventHandler(this.HojaSecaPictureBox_Click);
             // 
             // panel1
             // 
@@ -182,7 +194,7 @@
             this.CombustibleKcalm2Label.AutoSize = true;
             this.CombustibleKcalm2Label.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CombustibleKcalm2Label.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.CombustibleKcalm2Label.Location = new System.Drawing.Point(55, 95);
+            this.CombustibleKcalm2Label.Location = new System.Drawing.Point(59, 95);
             this.CombustibleKcalm2Label.Name = "CombustibleKcalm2Label";
             this.CombustibleKcalm2Label.Size = new System.Drawing.Size(167, 26);
             this.CombustibleKcalm2Label.TabIndex = 23;
@@ -206,7 +218,7 @@
             this.CombustibleN3Label.AutoSize = true;
             this.CombustibleN3Label.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CombustibleN3Label.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.CombustibleN3Label.Location = new System.Drawing.Point(36, 10);
+            this.CombustibleN3Label.Location = new System.Drawing.Point(37, 10);
             this.CombustibleN3Label.Name = "CombustibleN3Label";
             this.CombustibleN3Label.Size = new System.Drawing.Size(238, 29);
             this.CombustibleN3Label.TabIndex = 25;
@@ -218,7 +230,7 @@
             this.CombustibleKcalh2Label.AutoSize = true;
             this.CombustibleKcalh2Label.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CombustibleKcalh2Label.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.CombustibleKcalh2Label.Location = new System.Drawing.Point(68, 51);
+            this.CombustibleKcalh2Label.Location = new System.Drawing.Point(74, 51);
             this.CombustibleKcalh2Label.Name = "CombustibleKcalh2Label";
             this.CombustibleKcalh2Label.Size = new System.Drawing.Size(141, 26);
             this.CombustibleKcalh2Label.TabIndex = 22;
@@ -230,7 +242,7 @@
             this.CombustibleKcalh3Label.AutoSize = true;
             this.CombustibleKcalh3Label.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CombustibleKcalh3Label.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.CombustibleKcalh3Label.Location = new System.Drawing.Point(68, 51);
+            this.CombustibleKcalh3Label.Location = new System.Drawing.Point(74, 51);
             this.CombustibleKcalh3Label.Name = "CombustibleKcalh3Label";
             this.CombustibleKcalh3Label.Size = new System.Drawing.Size(141, 26);
             this.CombustibleKcalh3Label.TabIndex = 26;
@@ -242,7 +254,7 @@
             this.CombustibleKcalm3Label.AutoSize = true;
             this.CombustibleKcalm3Label.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CombustibleKcalm3Label.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.CombustibleKcalm3Label.Location = new System.Drawing.Point(71, 95);
+            this.CombustibleKcalm3Label.Location = new System.Drawing.Point(75, 95);
             this.CombustibleKcalm3Label.Name = "CombustibleKcalm3Label";
             this.CombustibleKcalm3Label.Size = new System.Drawing.Size(137, 26);
             this.CombustibleKcalm3Label.TabIndex = 27;
@@ -254,7 +266,7 @@
             this.CombustibleN1Label.AutoSize = true;
             this.CombustibleN1Label.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CombustibleN1Label.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.CombustibleN1Label.Location = new System.Drawing.Point(87, 10);
+            this.CombustibleN1Label.Location = new System.Drawing.Point(82, 10);
             this.CombustibleN1Label.Name = "CombustibleN1Label";
             this.CombustibleN1Label.Size = new System.Drawing.Size(133, 29);
             this.CombustibleN1Label.TabIndex = 18;
@@ -266,7 +278,7 @@
             this.CombustibleKcalm1Label.AutoSize = true;
             this.CombustibleKcalm1Label.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CombustibleKcalm1Label.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.CombustibleKcalm1Label.Location = new System.Drawing.Point(77, 95);
+            this.CombustibleKcalm1Label.Location = new System.Drawing.Point(75, 95);
             this.CombustibleKcalm1Label.Name = "CombustibleKcalm1Label";
             this.CombustibleKcalm1Label.Size = new System.Drawing.Size(137, 26);
             this.CombustibleKcalm1Label.TabIndex = 20;
@@ -278,12 +290,70 @@
             this.CombustibleKcalh1Label.AutoSize = true;
             this.CombustibleKcalh1Label.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CombustibleKcalh1Label.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.CombustibleKcalh1Label.Location = new System.Drawing.Point(68, 51);
+            this.CombustibleKcalh1Label.Location = new System.Drawing.Point(74, 51);
             this.CombustibleKcalh1Label.Name = "CombustibleKcalh1Label";
             this.CombustibleKcalh1Label.Size = new System.Drawing.Size(141, 26);
             this.CombustibleKcalh1Label.TabIndex = 19;
             this.CombustibleKcalh1Label.Text = "4,500 Kcal/h";
             this.CombustibleKcalh1Label.Visible = false;
+            // 
+            // DeseleccionarCombustibleButton
+            // 
+            this.DeseleccionarCombustibleButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.DeseleccionarCombustibleButton.FlatAppearance.BorderSize = 2;
+            this.DeseleccionarCombustibleButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Salmon;
+            this.DeseleccionarCombustibleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeseleccionarCombustibleButton.Font = new System.Drawing.Font("Georgia", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeseleccionarCombustibleButton.Image = global::SimuladorEstufa.Properties.Resources.Cancelar;
+            this.DeseleccionarCombustibleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DeseleccionarCombustibleButton.Location = new System.Drawing.Point(947, 413);
+            this.DeseleccionarCombustibleButton.Name = "DeseleccionarCombustibleButton";
+            this.DeseleccionarCombustibleButton.Size = new System.Drawing.Size(271, 74);
+            this.DeseleccionarCombustibleButton.TabIndex = 17;
+            this.DeseleccionarCombustibleButton.Text = "Cancelar";
+            this.DeseleccionarCombustibleButton.UseVisualStyleBackColor = true;
+            this.DeseleccionarCombustibleButton.Click += new System.EventHandler(this.DeseleccionarCombustibleButton_Click);
+            // 
+            // SeleccionarCombustibleButton
+            // 
+            this.SeleccionarCombustibleButton.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
+            this.SeleccionarCombustibleButton.FlatAppearance.BorderSize = 2;
+            this.SeleccionarCombustibleButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
+            this.SeleccionarCombustibleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SeleccionarCombustibleButton.Font = new System.Drawing.Font("Georgia", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SeleccionarCombustibleButton.Image = global::SimuladorEstufa.Properties.Resources.Seleccionar;
+            this.SeleccionarCombustibleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SeleccionarCombustibleButton.Location = new System.Drawing.Point(947, 332);
+            this.SeleccionarCombustibleButton.Name = "SeleccionarCombustibleButton";
+            this.SeleccionarCombustibleButton.Size = new System.Drawing.Size(271, 74);
+            this.SeleccionarCombustibleButton.TabIndex = 16;
+            this.SeleccionarCombustibleButton.Text = "Seleccionar";
+            this.SeleccionarCombustibleButton.UseVisualStyleBackColor = true;
+            this.SeleccionarCombustibleButton.Click += new System.EventHandler(this.SeleccionarCombustibleButton_Click);
+            // 
+            // CascaraArrozPictureBox
+            // 
+            this.CascaraArrozPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CascaraArrozPictureBox.Image = global::SimuladorEstufa.Properties.Resources.CascaraArroz;
+            this.CascaraArrozPictureBox.Location = new System.Drawing.Point(869, 3);
+            this.CascaraArrozPictureBox.Name = "CascaraArrozPictureBox";
+            this.CascaraArrozPictureBox.Size = new System.Drawing.Size(349, 356);
+            this.CascaraArrozPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CascaraArrozPictureBox.TabIndex = 3;
+            this.CascaraArrozPictureBox.TabStop = false;
+            this.CascaraArrozPictureBox.Click += new System.EventHandler(this.CascaraArrozPictureBox_Click);
+            // 
+            // LenaPictureBox
+            // 
+            this.LenaPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LenaPictureBox.Image = global::SimuladorEstufa.Properties.Resources.Leña1;
+            this.LenaPictureBox.Location = new System.Drawing.Point(28, 13);
+            this.LenaPictureBox.Name = "LenaPictureBox";
+            this.LenaPictureBox.Size = new System.Drawing.Size(242, 289);
+            this.LenaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LenaPictureBox.TabIndex = 2;
+            this.LenaPictureBox.TabStop = false;
+            this.LenaPictureBox.Click += new System.EventHandler(this.LenaPictureBox_Click);
             // 
             // AlimentosTabPage
             // 
@@ -306,9 +376,9 @@
             this.AlimentosTabPage.Controls.Add(this.CarnePictureBox);
             this.AlimentosTabPage.Controls.Add(this.YucaPictureBox);
             this.AlimentosTabPage.Location = new System.Drawing.Point(4, 32);
-            this.AlimentosTabPage.Margin = new System.Windows.Forms.Padding(2);
+            this.AlimentosTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AlimentosTabPage.Name = "AlimentosTabPage";
-            this.AlimentosTabPage.Padding = new System.Windows.Forms.Padding(2);
+            this.AlimentosTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AlimentosTabPage.Size = new System.Drawing.Size(1223, 491);
             this.AlimentosTabPage.TabIndex = 1;
             this.AlimentosTabPage.Text = "Alimentos";
@@ -464,6 +534,74 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Calorías               (Gr.):";
             // 
+            // DeseleccionarAlimentoButton
+            // 
+            this.DeseleccionarAlimentoButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
+            this.DeseleccionarAlimentoButton.FlatAppearance.BorderSize = 2;
+            this.DeseleccionarAlimentoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Salmon;
+            this.DeseleccionarAlimentoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeseleccionarAlimentoButton.Image = global::SimuladorEstufa.Properties.Resources.Cancelar;
+            this.DeseleccionarAlimentoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DeseleccionarAlimentoButton.Location = new System.Drawing.Point(947, 413);
+            this.DeseleccionarAlimentoButton.Name = "DeseleccionarAlimentoButton";
+            this.DeseleccionarAlimentoButton.Size = new System.Drawing.Size(271, 74);
+            this.DeseleccionarAlimentoButton.TabIndex = 15;
+            this.DeseleccionarAlimentoButton.Text = "Cancelar";
+            this.DeseleccionarAlimentoButton.UseVisualStyleBackColor = true;
+            this.DeseleccionarAlimentoButton.Click += new System.EventHandler(this.DeseleccionarAlimentoButton_Click);
+            // 
+            // SeleccionarAlimentoButton
+            // 
+            this.SeleccionarAlimentoButton.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
+            this.SeleccionarAlimentoButton.FlatAppearance.BorderSize = 2;
+            this.SeleccionarAlimentoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
+            this.SeleccionarAlimentoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SeleccionarAlimentoButton.Image = global::SimuladorEstufa.Properties.Resources.Seleccionar;
+            this.SeleccionarAlimentoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SeleccionarAlimentoButton.Location = new System.Drawing.Point(947, 332);
+            this.SeleccionarAlimentoButton.Name = "SeleccionarAlimentoButton";
+            this.SeleccionarAlimentoButton.Size = new System.Drawing.Size(271, 74);
+            this.SeleccionarAlimentoButton.TabIndex = 14;
+            this.SeleccionarAlimentoButton.Text = "Seleccionar";
+            this.SeleccionarAlimentoButton.UseVisualStyleBackColor = true;
+            this.SeleccionarAlimentoButton.Click += new System.EventHandler(this.SeleccionarAlimentoButton_Click);
+            // 
+            // ArrozPictureBox
+            // 
+            this.ArrozPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ArrozPictureBox.Image = global::SimuladorEstufa.Properties.Resources.Arroz;
+            this.ArrozPictureBox.Location = new System.Drawing.Point(947, 5);
+            this.ArrozPictureBox.Name = "ArrozPictureBox";
+            this.ArrozPictureBox.Size = new System.Drawing.Size(271, 250);
+            this.ArrozPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ArrozPictureBox.TabIndex = 2;
+            this.ArrozPictureBox.TabStop = false;
+            this.ArrozPictureBox.Click += new System.EventHandler(this.ArrozPictureBox_Click);
+            // 
+            // CarnePictureBox
+            // 
+            this.CarnePictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CarnePictureBox.Image = global::SimuladorEstufa.Properties.Resources.carne;
+            this.CarnePictureBox.Location = new System.Drawing.Point(478, 5);
+            this.CarnePictureBox.Name = "CarnePictureBox";
+            this.CarnePictureBox.Size = new System.Drawing.Size(271, 250);
+            this.CarnePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CarnePictureBox.TabIndex = 1;
+            this.CarnePictureBox.TabStop = false;
+            this.CarnePictureBox.Click += new System.EventHandler(this.CarnePictureBox_Click);
+            // 
+            // YucaPictureBox
+            // 
+            this.YucaPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.YucaPictureBox.Image = global::SimuladorEstufa.Properties.Resources.yuca;
+            this.YucaPictureBox.Location = new System.Drawing.Point(3, -30);
+            this.YucaPictureBox.Name = "YucaPictureBox";
+            this.YucaPictureBox.Size = new System.Drawing.Size(357, 373);
+            this.YucaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.YucaPictureBox.TabIndex = 0;
+            this.YucaPictureBox.TabStop = false;
+            this.YucaPictureBox.Click += new System.EventHandler(this.YucaPictureBox_Click);
+            // 
             // EstufaTabPage
             // 
             this.EstufaTabPage.Controls.Add(this.label15);
@@ -501,9 +639,9 @@
             this.EstufaTabPage.Controls.Add(this.Estufa1PictureBox);
             this.EstufaTabPage.Controls.Add(this.Estufa0PictureBox);
             this.EstufaTabPage.Location = new System.Drawing.Point(4, 32);
-            this.EstufaTabPage.Margin = new System.Windows.Forms.Padding(2);
+            this.EstufaTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.EstufaTabPage.Name = "EstufaTabPage";
-            this.EstufaTabPage.Padding = new System.Windows.Forms.Padding(2);
+            this.EstufaTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.EstufaTabPage.Size = new System.Drawing.Size(1223, 491);
             this.EstufaTabPage.TabIndex = 2;
             this.EstufaTabPage.Text = " Estufa ";
@@ -756,153 +894,6 @@
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             // 
-            // Timer
-            // 
-            this.Timer.Interval = 1000;
-            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
-            // 
-            // TimerCronometro
-            // 
-            this.TimerCronometro.Tick += new System.EventHandler(this.TimerCronometro_Tick);
-            // 
-            // HojaSecaPictureBox
-            // 
-            this.HojaSecaPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.HojaSecaPictureBox.Image = global::SimuladorEstufa.Properties.Resources.HojaSeca;
-            this.HojaSecaPictureBox.Location = new System.Drawing.Point(452, 3);
-            this.HojaSecaPictureBox.Name = "HojaSecaPictureBox";
-            this.HojaSecaPictureBox.Size = new System.Drawing.Size(310, 310);
-            this.HojaSecaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.HojaSecaPictureBox.TabIndex = 25;
-            this.HojaSecaPictureBox.TabStop = false;
-            this.HojaSecaPictureBox.Click += new System.EventHandler(this.HojaSecaPictureBox_Click);
-            // 
-            // DeseleccionarCombustibleButton
-            // 
-            this.DeseleccionarCombustibleButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
-            this.DeseleccionarCombustibleButton.FlatAppearance.BorderSize = 2;
-            this.DeseleccionarCombustibleButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Salmon;
-            this.DeseleccionarCombustibleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeseleccionarCombustibleButton.Font = new System.Drawing.Font("Georgia", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeseleccionarCombustibleButton.Image = global::SimuladorEstufa.Properties.Resources.Cancelar;
-            this.DeseleccionarCombustibleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DeseleccionarCombustibleButton.Location = new System.Drawing.Point(947, 413);
-            this.DeseleccionarCombustibleButton.Name = "DeseleccionarCombustibleButton";
-            this.DeseleccionarCombustibleButton.Size = new System.Drawing.Size(271, 74);
-            this.DeseleccionarCombustibleButton.TabIndex = 17;
-            this.DeseleccionarCombustibleButton.Text = "Cancelar";
-            this.DeseleccionarCombustibleButton.UseVisualStyleBackColor = true;
-            this.DeseleccionarCombustibleButton.Click += new System.EventHandler(this.DeseleccionarCombustibleButton_Click);
-            // 
-            // SeleccionarCombustibleButton
-            // 
-            this.SeleccionarCombustibleButton.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
-            this.SeleccionarCombustibleButton.FlatAppearance.BorderSize = 2;
-            this.SeleccionarCombustibleButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
-            this.SeleccionarCombustibleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SeleccionarCombustibleButton.Font = new System.Drawing.Font("Georgia", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SeleccionarCombustibleButton.Image = global::SimuladorEstufa.Properties.Resources.Seleccionar;
-            this.SeleccionarCombustibleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SeleccionarCombustibleButton.Location = new System.Drawing.Point(947, 332);
-            this.SeleccionarCombustibleButton.Name = "SeleccionarCombustibleButton";
-            this.SeleccionarCombustibleButton.Size = new System.Drawing.Size(271, 74);
-            this.SeleccionarCombustibleButton.TabIndex = 16;
-            this.SeleccionarCombustibleButton.Text = "Seleccionar";
-            this.SeleccionarCombustibleButton.UseVisualStyleBackColor = true;
-            this.SeleccionarCombustibleButton.Click += new System.EventHandler(this.SeleccionarCombustibleButton_Click);
-            // 
-            // CascaraArrozPictureBox
-            // 
-            this.CascaraArrozPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CascaraArrozPictureBox.Image = global::SimuladorEstufa.Properties.Resources.CascaraArroz;
-            this.CascaraArrozPictureBox.Location = new System.Drawing.Point(869, 3);
-            this.CascaraArrozPictureBox.Name = "CascaraArrozPictureBox";
-            this.CascaraArrozPictureBox.Size = new System.Drawing.Size(349, 338);
-            this.CascaraArrozPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.CascaraArrozPictureBox.TabIndex = 3;
-            this.CascaraArrozPictureBox.TabStop = false;
-            this.CascaraArrozPictureBox.Click += new System.EventHandler(this.CascaraArrozPictureBox_Click);
-            // 
-            // LenaPictureBox
-            // 
-            this.LenaPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LenaPictureBox.Image = global::SimuladorEstufa.Properties.Resources.Leña;
-            this.LenaPictureBox.Location = new System.Drawing.Point(5, 5);
-            this.LenaPictureBox.Name = "LenaPictureBox";
-            this.LenaPictureBox.Size = new System.Drawing.Size(310, 310);
-            this.LenaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.LenaPictureBox.TabIndex = 2;
-            this.LenaPictureBox.TabStop = false;
-            this.LenaPictureBox.Click += new System.EventHandler(this.LenaPictureBox_Click);
-            // 
-            // DeseleccionarAlimentoButton
-            // 
-            this.DeseleccionarAlimentoButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
-            this.DeseleccionarAlimentoButton.FlatAppearance.BorderSize = 2;
-            this.DeseleccionarAlimentoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Salmon;
-            this.DeseleccionarAlimentoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeseleccionarAlimentoButton.Image = global::SimuladorEstufa.Properties.Resources.Cancelar;
-            this.DeseleccionarAlimentoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DeseleccionarAlimentoButton.Location = new System.Drawing.Point(947, 413);
-            this.DeseleccionarAlimentoButton.Name = "DeseleccionarAlimentoButton";
-            this.DeseleccionarAlimentoButton.Size = new System.Drawing.Size(271, 74);
-            this.DeseleccionarAlimentoButton.TabIndex = 15;
-            this.DeseleccionarAlimentoButton.Text = "Cancelar";
-            this.DeseleccionarAlimentoButton.UseVisualStyleBackColor = true;
-            this.DeseleccionarAlimentoButton.Click += new System.EventHandler(this.DeseleccionarAlimentoButton_Click);
-            // 
-            // SeleccionarAlimentoButton
-            // 
-            this.SeleccionarAlimentoButton.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
-            this.SeleccionarAlimentoButton.FlatAppearance.BorderSize = 2;
-            this.SeleccionarAlimentoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
-            this.SeleccionarAlimentoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SeleccionarAlimentoButton.Image = global::SimuladorEstufa.Properties.Resources.Seleccionar;
-            this.SeleccionarAlimentoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SeleccionarAlimentoButton.Location = new System.Drawing.Point(947, 332);
-            this.SeleccionarAlimentoButton.Name = "SeleccionarAlimentoButton";
-            this.SeleccionarAlimentoButton.Size = new System.Drawing.Size(271, 74);
-            this.SeleccionarAlimentoButton.TabIndex = 14;
-            this.SeleccionarAlimentoButton.Text = "Seleccionar";
-            this.SeleccionarAlimentoButton.UseVisualStyleBackColor = true;
-            this.SeleccionarAlimentoButton.Click += new System.EventHandler(this.SeleccionarAlimentoButton_Click);
-            // 
-            // ArrozPictureBox
-            // 
-            this.ArrozPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ArrozPictureBox.Image = global::SimuladorEstufa.Properties.Resources.Arroz;
-            this.ArrozPictureBox.Location = new System.Drawing.Point(947, 5);
-            this.ArrozPictureBox.Name = "ArrozPictureBox";
-            this.ArrozPictureBox.Size = new System.Drawing.Size(271, 250);
-            this.ArrozPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ArrozPictureBox.TabIndex = 2;
-            this.ArrozPictureBox.TabStop = false;
-            this.ArrozPictureBox.Click += new System.EventHandler(this.ArrozPictureBox_Click);
-            // 
-            // CarnePictureBox
-            // 
-            this.CarnePictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CarnePictureBox.Image = global::SimuladorEstufa.Properties.Resources.carne;
-            this.CarnePictureBox.Location = new System.Drawing.Point(478, 5);
-            this.CarnePictureBox.Name = "CarnePictureBox";
-            this.CarnePictureBox.Size = new System.Drawing.Size(271, 250);
-            this.CarnePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.CarnePictureBox.TabIndex = 1;
-            this.CarnePictureBox.TabStop = false;
-            this.CarnePictureBox.Click += new System.EventHandler(this.CarnePictureBox_Click);
-            // 
-            // YucaPictureBox
-            // 
-            this.YucaPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.YucaPictureBox.Image = global::SimuladorEstufa.Properties.Resources.yuca;
-            this.YucaPictureBox.Location = new System.Drawing.Point(3, -30);
-            this.YucaPictureBox.Name = "YucaPictureBox";
-            this.YucaPictureBox.Size = new System.Drawing.Size(357, 373);
-            this.YucaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.YucaPictureBox.TabIndex = 0;
-            this.YucaPictureBox.TabStop = false;
-            this.YucaPictureBox.Click += new System.EventHandler(this.YucaPictureBox_Click);
-            // 
             // Posicion5PictureBox
             // 
             this.Posicion5PictureBox.Image = global::SimuladorEstufa.Properties.Resources.Activo;
@@ -1043,32 +1034,41 @@
             this.Estufa0PictureBox.TabIndex = 21;
             this.Estufa0PictureBox.TabStop = false;
             // 
+            // Timer
+            // 
+            this.Timer.Interval = 1000;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
+            // TimerCronometro
+            // 
+            this.TimerCronometro.Tick += new System.EventHandler(this.TimerCronometro_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1243, 538);
+            this.ClientSize = new System.Drawing.Size(1247, 538);
             this.Controls.Add(this.TabControl);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Simulador Estufa";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.TabControl.ResumeLayout(false);
             this.CombustibleTagPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.HojaSecaPictureBox)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CascaraArrozPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LenaPictureBox)).EndInit();
             this.AlimentosTabPage.ResumeLayout(false);
             this.AlimentosTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadAlimentoNumericUpDown)).EndInit();
-            this.EstufaTabPage.ResumeLayout(false);
-            this.EstufaTabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HojaSecaPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CascaraArrozPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LenaPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ArrozPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarnePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.YucaPictureBox)).EndInit();
+            this.EstufaTabPage.ResumeLayout(false);
+            this.EstufaTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Posicion5PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Posicion4PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Posicion3PictureBox)).EndInit();
