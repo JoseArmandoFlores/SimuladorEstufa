@@ -62,6 +62,7 @@
             this.CarnePictureBox = new System.Windows.Forms.PictureBox();
             this.YucaPictureBox = new System.Windows.Forms.PictureBox();
             this.EstufaTabPage = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
             this.KcalQuemadaTotalTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.KcalQuemadaMinutoTextBox = new System.Windows.Forms.TextBox();
@@ -96,6 +97,7 @@
             this.Estufa1PictureBox = new System.Windows.Forms.PictureBox();
             this.Estufa0PictureBox = new System.Windows.Forms.PictureBox();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.TimerCronometro = new System.Windows.Forms.Timer(this.components);
             this.TabControl.SuspendLayout();
             this.CombustibleTagPage.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -129,7 +131,7 @@
             this.TabControl.Controls.Add(this.EstufaTabPage);
             this.TabControl.Font = new System.Drawing.Font("Georgia", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TabControl.Location = new System.Drawing.Point(9, 10);
-            this.TabControl.Margin = new System.Windows.Forms.Padding(2);
+            this.TabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
             this.TabControl.Size = new System.Drawing.Size(1231, 527);
@@ -144,9 +146,9 @@
             this.CombustibleTagPage.Controls.Add(this.LenaPictureBox);
             this.CombustibleTagPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CombustibleTagPage.Location = new System.Drawing.Point(4, 32);
-            this.CombustibleTagPage.Margin = new System.Windows.Forms.Padding(2);
+            this.CombustibleTagPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CombustibleTagPage.Name = "CombustibleTagPage";
-            this.CombustibleTagPage.Padding = new System.Windows.Forms.Padding(2);
+            this.CombustibleTagPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CombustibleTagPage.Size = new System.Drawing.Size(1223, 491);
             this.CombustibleTagPage.TabIndex = 0;
             this.CombustibleTagPage.Text = "Combustible";
@@ -317,9 +319,9 @@
             this.AlimentosTabPage.Controls.Add(this.CarnePictureBox);
             this.AlimentosTabPage.Controls.Add(this.YucaPictureBox);
             this.AlimentosTabPage.Location = new System.Drawing.Point(4, 32);
-            this.AlimentosTabPage.Margin = new System.Windows.Forms.Padding(2);
+            this.AlimentosTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AlimentosTabPage.Name = "AlimentosTabPage";
-            this.AlimentosTabPage.Padding = new System.Windows.Forms.Padding(2);
+            this.AlimentosTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AlimentosTabPage.Size = new System.Drawing.Size(1223, 491);
             this.AlimentosTabPage.TabIndex = 1;
             this.AlimentosTabPage.Text = "Alimentos";
@@ -539,6 +541,7 @@
             // 
             // EstufaTabPage
             // 
+            this.EstufaTabPage.Controls.Add(this.label15);
             this.EstufaTabPage.Controls.Add(this.KcalQuemadaTotalTextBox);
             this.EstufaTabPage.Controls.Add(this.label14);
             this.EstufaTabPage.Controls.Add(this.KcalQuemadaMinutoTextBox);
@@ -573,17 +576,27 @@
             this.EstufaTabPage.Controls.Add(this.Estufa1PictureBox);
             this.EstufaTabPage.Controls.Add(this.Estufa0PictureBox);
             this.EstufaTabPage.Location = new System.Drawing.Point(4, 32);
-            this.EstufaTabPage.Margin = new System.Windows.Forms.Padding(2);
+            this.EstufaTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.EstufaTabPage.Name = "EstufaTabPage";
-            this.EstufaTabPage.Padding = new System.Windows.Forms.Padding(2);
+            this.EstufaTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.EstufaTabPage.Size = new System.Drawing.Size(1223, 491);
             this.EstufaTabPage.TabIndex = 2;
             this.EstufaTabPage.Text = " Estufa ";
             this.EstufaTabPage.UseVisualStyleBackColor = true;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(1104, 67);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(34, 18);
+            this.label15.TabIndex = 55;
+            this.label15.Text = "seg";
+            // 
             // KcalQuemadaTotalTextBox
             // 
-            this.KcalQuemadaTotalTextBox.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KcalQuemadaTotalTextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KcalQuemadaTotalTextBox.Location = new System.Drawing.Point(1027, 294);
             this.KcalQuemadaTotalTextBox.Name = "KcalQuemadaTotalTextBox";
             this.KcalQuemadaTotalTextBox.ReadOnly = true;
@@ -603,7 +616,7 @@
             // 
             // KcalQuemadaMinutoTextBox
             // 
-            this.KcalQuemadaMinutoTextBox.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KcalQuemadaMinutoTextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KcalQuemadaMinutoTextBox.Location = new System.Drawing.Point(1027, 342);
             this.KcalQuemadaMinutoTextBox.Name = "KcalQuemadaMinutoTextBox";
             this.KcalQuemadaMinutoTextBox.ReadOnly = true;
@@ -623,7 +636,7 @@
             // 
             // KcalRestantesTextBox
             // 
-            this.KcalRestantesTextBox.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KcalRestantesTextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.KcalRestantesTextBox.Location = new System.Drawing.Point(1027, 248);
             this.KcalRestantesTextBox.Name = "KcalRestantesTextBox";
             this.KcalRestantesTextBox.ReadOnly = true;
@@ -665,17 +678,17 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1088, 67);
+            this.label10.Location = new System.Drawing.Point(1062, 67);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 18);
+            this.label10.Size = new System.Drawing.Size(41, 18);
             this.label10.TabIndex = 45;
-            this.label10.Text = "m";
+            this.label10.Text = "min";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(924, 92);
+            this.label9.Location = new System.Drawing.Point(907, 92);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(115, 29);
             this.label9.TabIndex = 44;
@@ -685,21 +698,21 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1056, 67);
+            this.label8.Location = new System.Drawing.Point(1031, 67);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(19, 18);
+            this.label8.Size = new System.Drawing.Size(27, 18);
             this.label8.TabIndex = 43;
-            this.label8.Text = "h";
+            this.label8.Text = "hr";
             // 
             // TiempoLabel
             // 
             this.TiempoLabel.AutoSize = true;
-            this.TiempoLabel.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TiempoLabel.Location = new System.Drawing.Point(1045, 92);
+            this.TiempoLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TiempoLabel.Location = new System.Drawing.Point(1028, 92);
             this.TiempoLabel.Name = "TiempoLabel";
-            this.TiempoLabel.Size = new System.Drawing.Size(81, 29);
+            this.TiempoLabel.Size = new System.Drawing.Size(110, 31);
             this.TiempoLabel.TabIndex = 42;
-            this.TiempoLabel.Text = "00:00";
+            this.TiempoLabel.Text = "00:00:00";
             // 
             // label6
             // 
@@ -963,13 +976,17 @@
             this.Timer.Interval = 1000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // TimerCronometro
+            // 
+            this.TimerCronometro.Tick += new System.EventHandler(this.TimerCronometro_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 538);
+            this.ClientSize = new System.Drawing.Size(1243, 538);
             this.Controls.Add(this.TabControl);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Simulador Estufa";
@@ -1074,6 +1091,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox KcalQuemadaTotalTextBox;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Timer TimerCronometro;
     }
 }
 
